@@ -1,23 +1,12 @@
 <h1>Listing cookbooks</h1>
+<ul>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% @cookbooks.each do |cookbook| %>
+    <%= render "shared/cookbook", cookbook: cookbook %>
+  <% end %>
 
-<% @cookbooks.each do |cookbook| %>
-  <tr>
-    <td><%= cookbook.name %></td>
-    <td><%= link_to 'Show', cookbook %></td>
-    <td><%= link_to 'Edit', edit_cookbook_path(cookbook) %></td>
-    <td><%= link_to 'Destroy', cookbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Cookbook', new_cookbook_path %>
+  <li class="btn btn-success btn-large pull-right">
+    <span class="fui-plus-16"></span>
+    <%= link_to 'New Cookbook', new_cookbook_path %>
+  </li>
+</ul>
